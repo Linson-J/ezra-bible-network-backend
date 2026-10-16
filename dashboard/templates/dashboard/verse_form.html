@@ -1,0 +1,46 @@
+{% extends "dashboard/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'dashboard:verses' %}"><svg class="i"><use href="#i-back"/></svg>Daily verse</a>
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Daily verse</p>
+    <h1>{{ title }}</h1>
+    <p class="muted">{{ subtitle }}</p>
+  </div>
+</header>
+
+<form method="post" class="stack narrow" novalidate>
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ request.GET.next }}">
+  <section class="card">
+    {% if "date" in form.fields %}
+    <div class="form-grid">
+      {% include "dashboard/partials/field.html" with field=form.date %}
+      {% include "dashboard/partials/field.html" with field=form.note %}
+    </div>
+    {% endif %}
+    {% include "dashboard/partials/field.html" with field=form.reference %}
+    {% include "dashboard/partials/field.html" with field=form.text %}
+  </section>
+
+  <section class="card preview">
+    <p class="eyebrow">Preview in the app</p>
+    <blockquote class="scripture">
+      <p data-mirror="{{ form.text.auto_id }}">{{ form.text.value|default:"The verse text appears here." }}</p>
+      <cite data-mirror="{{ form.reference.auto_id }}">{{ form.reference.value|default:"Reference" }}</cite>
+    </blockquote>
+  </section>
+
+  <div class="savebar">
+    {% if special %}
+      <button class="btn danger-ghost" type="submit" form="delete-form"
+        data-confirm="Remove the special verse for {{ special.date|date:'j F' }}? The rotation verse will show instead."><svg class="i"><use href="#i-trash"/></svg>Remove</button>
+    {% else %}<span></span>{% endif %}
+    <button class="btn primary" type="submit"><svg class="i"><use href="#i-check"/></svg>Save verse</button>
+  </div>
+</form>
+{% if special %}
+<form id="delete-form" method="post" action="{% url 'dashboard:special-delete' special.pk %}">{% csrf_token %}</form>
+{% endif %}
+{% endblock %}

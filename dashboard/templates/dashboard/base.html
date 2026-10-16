@@ -1,0 +1,119 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0E0B2A">
+  <title>{% block title %}Dashboard{% endblock %} · Ezra Bible Network</title>
+  <link rel="icon" type="image/png" href="{% static 'dashboard/img/emblem.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'dashboard/img/emblem.png' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'dashboard/app.css' %}">
+  <script>try{var t=localStorage.getItem("ezra-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+{% include "dashboard/partials/icons.html" %}
+{% block body %}
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand-tile" href="{% url 'dashboard:home' %}">
+      <img src="{% static 'dashboard/img/wordmark.png' %}" alt="Ezra Bible Network" width="168" height="86">
+    </a>
+
+    <form method="post" action="{% url 'dashboard:toggle-live' %}" class="air-switch">
+      {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <button type="submit" class="onair {% if shell_is_live %}is-live{% endif %}"
+              data-confirm="{% if shell_is_live %}Take the app off air? Viewers will see your off-air message.{% else %}Put the app back on air?{% endif %}">
+        <span class="dot"></span>{% if shell_is_live %}On air{% else %}Off air{% endif %}
+        <span class="onair-hint">{% if shell_is_live %}Tap to go off air{% else %}Tap to go live{% endif %}</span>
+      </button>
+    </form>
+
+    <nav class="side-nav">
+      {% include "dashboard/partials/nav_link.html" with key="home" label="Overview" icon="home" url_name="dashboard:home" %}
+      {% include "dashboard/partials/nav_link.html" with key="live" label="Live stream" icon="radio" url_name="dashboard:live" %}
+      {% include "dashboard/partials/nav_link.html" with key="schedule" label="Schedule" icon="calendar" url_name="dashboard:schedule" %}
+      {% include "dashboard/partials/nav_link.html" with key="verses" label="Daily verse" icon="book" url_name="dashboard:verses" %}
+      {% include "dashboard/partials/nav_link.html" with key="prayers" label="Prayer requests" icon="heart" url_name="dashboard:prayers" badge=shell_new_prayers %}
+      {% include "dashboard/partials/nav_link.html" with key="content" label="Ministry details" icon="info" url_name="dashboard:content" %}
+    </nav>
+
+    <div class="side-foot">
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch light or dark theme">
+        <svg class="i"><use href="#i-sun"/></svg><span>Theme</span>
+      </button>
+      {% if user.is_superuser %}<a class="side-link subtle" href="{% url 'admin:index' %}"><svg class="i"><use href="#i-database"/></svg>Database admin</a>{% endif %}
+      <div class="me">
+        <span class="avatar">{{ user.get_username|first|upper }}</span>
+        <span class="me-name">{{ user.get_full_name|default:user.get_username }}</span>
+        <form method="post" action="{% url 'dashboard:logout' %}">{% csrf_token %}
+          <button class="icon-btn" type="submit" title="Sign out" aria-label="Sign out"><svg class="i"><use href="#i-logout"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <a class="brand" href="{% url 'dashboard:home' %}">
+      <img src="{% static 'dashboard/img/emblem.png' %}" alt="" width="36" height="36">
+      <span><strong>Ezra</strong><small>Dashboard</small></span>
+    </a>
+    <div class="topbar-actions">
+      <form method="post" action="{% url 'dashboard:toggle-live' %}">
+        {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" class="onair compact {% if shell_is_live %}is-live{% endif %}"
+                data-confirm="{% if shell_is_live %}Take the app off air?{% else %}Put the app back on air?{% endif %}">
+          <span class="dot"></span>{% if shell_is_live %}On air{% else %}Off air{% endif %}
+        </button>
+      </form>
+      <details class="menu">
+        <summary class="avatar" aria-label="Account menu">{{ user.get_username|first|upper }}</summary>
+        <div class="menu-pop">
+          <a href="{% url 'dashboard:content' %}"><svg class="i"><use href="#i-info"/></svg>Ministry details</a>
+          <button type="button" data-theme-toggle><svg class="i"><use href="#i-sun"/></svg>Switch theme</button>
+          {% if user.is_superuser %}<a href="{% url 'admin:index' %}"><svg class="i"><use href="#i-database"/></svg>Database admin</a>{% endif %}
+          <form method="post" action="{% url 'dashboard:logout' %}">{% csrf_token %}
+            <button type="submit"><svg class="i"><use href="#i-logout"/></svg>Sign out</button>
+          </form>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <nav class="tabbar" aria-label="Main">
+    {% include "dashboard/partials/tab_link.html" with key="home" label="Home" icon="home" url_name="dashboard:home" %}
+    {% include "dashboard/partials/tab_link.html" with key="live" label="Live" icon="radio" url_name="dashboard:live" %}
+    {% include "dashboard/partials/tab_link.html" with key="schedule" label="Schedule" icon="calendar" url_name="dashboard:schedule" %}
+    {% include "dashboard/partials/tab_link.html" with key="verses" label="Verse" icon="book" url_name="dashboard:verses" %}
+    {% include "dashboard/partials/tab_link.html" with key="prayers" label="Prayers" icon="heart" url_name="dashboard:prayers" badge=shell_new_prayers %}
+  </nav>
+</div>
+{% endblock %}
+
+{% if messages %}
+<div class="toasts" role="status" aria-live="polite">
+  {% for m in messages %}
+  <div class="toast {{ m.tags }}"><svg class="i"><use href="#i-{% if m.level >= 40 %}alert{% else %}check{% endif %}"/></svg><span>{{ m }}</span>
+    <button type="button" class="toast-x" aria-label="Dismiss">&times;</button></div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<dialog class="confirm" id="confirm-dialog">
+  <form method="dialog">
+    <p class="confirm-text"></p>
+    <div class="confirm-actions">
+      <button value="cancel" class="btn ghost">Cancel</button>
+      <button value="ok" class="btn primary" autofocus>Continue</button>
+    </div>
+  </form>
+</dialog>
+<script src="{% static 'dashboard/app.js' %}" defer></script>
+</body>
+</html>

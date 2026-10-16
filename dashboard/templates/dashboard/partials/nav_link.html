@@ -1,0 +1,3 @@
+<a class="side-link{% if nav == key %} active{% endif %}" href="{% url url_name %}"{% if nav == key %} aria-current="page"{% endif %}>
+  <svg class="i"><use href="#i-{{ icon }}"/></svg>{{ label }}{% if badge %}<span class="count">{{ badge }}</span>{% endif %}
+</a>

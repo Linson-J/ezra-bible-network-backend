@@ -1,0 +1,86 @@
+{% extends "dashboard/base.html" %}{% load dash %}
+{% block title %}Prayer requests{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Prayer requests</p>
+    <h1>Praying together</h1>
+    <p class="muted">Requests sent from the app's prayer form.</p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <nav class="seg" aria-label="Status">
+    {% for t in tabs %}
+      <a class="seg-item{% if t.key == status %} active{% endif %}" href="?status={{ t.key }}{% if q %}&q={{ q|urlencode }}{% endif %}">{{ t.label }}<small>{{ t.count }}</small></a>
+    {% endfor %}
+  </nav>
+  <form class="search" method="get" role="search">
+    <input type="hidden" name="status" value="{{ status }}">
+    <svg class="i"><use href="#i-search"/></svg>
+    <input class="input" type="search" name="q" value="{{ q }}" placeholder="Search name, phone or text" aria-label="Search prayer requests">
+  </form>
+</div>
+
+<div class="prayer-grid">
+{% for p in page %}
+  <article class="card prayer status-{{ p.status }}" id="p{{ p.pk }}">
+    <header class="prayer-head">
+      <span class="avatar">{{ p.name|default:"?"|first|upper }}</span>
+      <div>
+        <strong>{{ p.name|default:"Anonymous" }}</strong>
+        <span class="muted small" title="{{ p.created_at|date:'j M Y, g:i A' }}">{{ p.created_at|ago }}</span>
+      </div>
+      <span class="badge sm {% if p.status == 'new' %}gold{% elif p.status == 'prayed' %}ok{% endif %}">{{ p.get_status_display }}</span>
+    </header>
+    <p class="prayer-text">{{ p.request|linebreaksbr }}</p>
+    {% if p.phone %}
+    <div class="contact-row">
+      <a class="btn ghost sm" href="tel:{{ p.phone }}"><svg class="i"><use href="#i-phone"/></svg>{{ p.phone }}</a>
+      <a class="btn ghost sm" href="https://wa.me/{{ p.phone|cut:'+'|cut:' '|cut:'-' }}" target="_blank" rel="noopener"><svg class="i"><use href="#i-message"/></svg>WhatsApp</a>
+    </div>
+    {% endif %}
+
+    <details class="note"{% if p.note %} open{% endif %}>
+      <summary>{% if p.note %}Team note{% else %}Add a team note{% endif %}</summary>
+      <form method="post" action="{% url 'dashboard:prayer-update' p.pk %}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}#p{{ p.pk }}">
+        <textarea class="input" name="note" rows="2" placeholder="Only visible to your team">{{ p.note }}</textarea>
+        <button class="btn ghost sm" type="submit">Save note</button>
+      </form>
+    </details>
+
+    <footer class="prayer-actions">
+      {% if p.status != "prayed" %}
+      <form method="post" action="{% url 'dashboard:prayer-update' p.pk %}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="status" value="prayed">
+        <button class="btn primary sm" type="submit"><svg class="i"><use href="#i-heart"/></svg>Prayed</button>
+      </form>
+      {% endif %}
+      {% if p.status != "archived" %}
+      <form method="post" action="{% url 'dashboard:prayer-update' p.pk %}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="status" value="archived">
+        <button class="btn ghost sm" type="submit"><svg class="i"><use href="#i-archive"/></svg>Archive</button>
+      </form>
+      {% else %}
+      <form method="post" action="{% url 'dashboard:prayer-update' p.pk %}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="status" value="new">
+        <button class="btn ghost sm" type="submit"><svg class="i"><use href="#i-undo"/></svg>Restore</button>
+      </form>
+      {% endif %}
+      <form method="post" action="{% url 'dashboard:prayer-delete' p.pk %}" class="push">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button class="icon-btn danger" type="submit" title="Delete" aria-label="Delete request" data-confirm="Delete this prayer request permanently?"><svg class="i"><use href="#i-trash"/></svg></button>
+      </form>
+    </footer>
+  </article>
+{% empty %}
+  <div class="empty wide">
+    <svg class="i"><use href="#i-heart"/></svg>
+    <h3>{% if q %}No requests match “{{ q }}”{% elif status == "new" %}All caught up{% else %}Nothing here yet{% endif %}</h3>
+    <p class="muted">{% if status == "new" and not q %}New requests from the app will appear here.{% endif %}</p>
+  </div>
+{% endfor %}
+</div>
+{% include "dashboard/partials/pager.html" %}
+{% endblock %}

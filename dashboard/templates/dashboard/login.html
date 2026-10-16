@@ -1,0 +1,24 @@
+{% extends "dashboard/base.html" %}{% load static %}
+{% block title %}Sign in{% endblock %}
+{% block body %}
+<main class="login">
+  <div class="login-glow" aria-hidden="true"></div>
+  <form method="post" class="login-card" novalidate>
+    {% csrf_token %}
+    <div class="login-logo"><img src="{% static 'dashboard/img/wordmark.png' %}" alt="Ezra Bible Network" width="200" height="103"></div>
+    <h1>Welcome back</h1>
+    <p class="muted">Sign in to manage the Ezra Bible Network app.</p>
+
+    {% if form.non_field_errors %}
+      <div class="notice danger">{% for e in form.non_field_errors %}{{ e }}{% endfor %}</div>
+    {% endif %}
+
+    {% include "dashboard/partials/field.html" with field=form.username %}
+    {% include "dashboard/partials/field.html" with field=form.password %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn primary block lg" type="submit">Sign in<svg class="i"><use href="#i-arrow"/></svg></button>
+
+    <p class="login-verse">“Ezra had prepared his heart to seek the law of the LORD, and to do it, and to teach.”<span>Ezra 7:10</span></p>
+  </form>
+</main>
+{% endblock %}

@@ -1,0 +1,10 @@
+{
+  "streamUrl": "",
+  "streamBackupUrl": "",
+  "isLive": true,
+  "offlineMessage": "We're having trouble reaching the live stream. We'll keep trying.",
+  "announcement": "",
+  "minAppVersion": "1.0.0",
+  "forceUpdate": false,
+  "donationUrl": "https://example.com/donate"
+}

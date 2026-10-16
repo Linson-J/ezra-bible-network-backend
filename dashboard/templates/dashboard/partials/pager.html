@@ -1,0 +1,7 @@
+{% if page.has_other_pages %}
+<nav class="pager" aria-label="Pages">
+  {% if page.has_previous %}<a class="btn ghost sm" href="?{% if q %}q={{ q|urlencode }}&{% endif %}{% if status %}status={{ status }}&{% endif %}page={{ page.previous_page_number }}"><svg class="i"><use href="#i-back"/></svg>Previous</a>{% else %}<span></span>{% endif %}
+  <span class="muted small">Page {{ page.number }} of {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a class="btn ghost sm" href="?{% if q %}q={{ q|urlencode }}&{% endif %}{% if status %}status={{ status }}&{% endif %}page={{ page.next_page_number }}">Next<svg class="i"><use href="#i-arrow"/></svg></a>{% else %}<span></span>{% endif %}
+</nav>
+{% endif %}

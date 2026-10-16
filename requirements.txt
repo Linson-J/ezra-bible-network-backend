@@ -1,0 +1,6 @@
+Django>=6.0,<6.1
+whitenoise>=6.12,<7
+gunicorn>=26,<27
+python-dotenv>=1.2,<2
+# For PostgreSQL (set POSTGRES_DB in .env), also install:
+# psycopg[binary]>=3.2

@@ -1,0 +1,48 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Live stream{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Live stream</p>
+    <h1>Stream & app settings</h1>
+    <p class="muted">Changes reach the app the next time someone opens it. No app update needed.</p>
+  </div>
+</header>
+
+<form method="post" class="stack" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}<div class="notice danger">{{ form.non_field_errors }}</div>{% endif %}
+
+  <section class="card">
+    <div class="card-head"><h3>Broadcast</h3></div>
+    {% include "dashboard/partials/field.html" with field=form.is_live %}
+    {% include "dashboard/partials/field.html" with field=form.offline_message %}
+    {% include "dashboard/partials/field.html" with field=form.announcement %}
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h3>Stream sources</h3>
+    </div>
+    <p class="muted small">Use the HLS <code>…/index.m3u8</code> address, not the RTMP address your encoder pushes to. Leave both empty to use the URL built into the app.</p>
+    <div class="form-grid">
+      {% include "dashboard/partials/field.html" with field=form.stream_url %}
+      {% include "dashboard/partials/field.html" with field=form.stream_backup_url %}
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h3>App version & giving</h3></div>
+    <div class="form-grid">
+      {% include "dashboard/partials/field.html" with field=form.min_app_version %}
+      {% include "dashboard/partials/field.html" with field=form.donation_url %}
+    </div>
+    {% include "dashboard/partials/field.html" with field=form.force_update %}
+  </section>
+
+  <div class="savebar">
+    <span class="muted small">Last saved {{ config.updated_at|date:"j M, g:i A" }}</span>
+    <button class="btn primary" type="submit"><svg class="i"><use href="#i-check"/></svg>Save changes</button>
+  </div>
+</form>
+{% endblock %}

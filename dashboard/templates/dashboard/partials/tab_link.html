@@ -1,0 +1,4 @@
+<a class="tab{% if nav == key %} active{% endif %}" href="{% url url_name %}"{% if nav == key %} aria-current="page"{% endif %}>
+  <span class="tab-icon"><svg class="i"><use href="#i-{{ icon }}"/></svg>{% if badge %}<span class="count">{{ badge }}</span>{% endif %}</span>
+  <span>{{ label }}</span>
+</a>

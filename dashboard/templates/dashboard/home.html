@@ -1,0 +1,101 @@
+{% extends "dashboard/base.html" %}{% load dash %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">{{ now|date:"l, j F" }}</p>
+    <h1>{{ greeting }}, {{ user.first_name|default:user.get_username }}</h1>
+  </div>
+</header>
+
+<section class="hero {% if config.is_live %}is-live{% else %}is-off{% endif %}">
+  <div class="hero-main">
+    <span class="badge {% if config.is_live %}live{% else %}off{% endif %}"><span class="dot"></span>{% if config.is_live %}On air{% else %}Off air{% endif %}</span>
+    {% if not config.is_live %}
+      <h2>The app is showing your off-air screen</h2>
+      <p class="muted">“{{ config.offline_message|default:"No message set." }}”</p>
+    {% elif on_air %}
+      <p class="eyebrow">Now playing</p>
+      <h2>{{ on_air.title }}</h2>
+      <p class="muted">{% if on_air.speaker %}{{ on_air.speaker }} · {% endif %}{{ on_air.start_time|time:"g:i A" }} – {{ on_air.end_time|time:"g:i A" }}</p>
+    {% else %}
+      <h2>Live stream running</h2>
+      <p class="muted">Nothing on the schedule right now.</p>
+    {% endif %}
+    {% if config.announcement %}<p class="hero-note"><svg class="i"><use href="#i-info"/></svg>{{ config.announcement }}</p>{% endif %}
+  </div>
+  <div class="hero-side">
+    {% if upcoming and config.is_live %}
+      <div class="up-next">
+        <span class="eyebrow">Up next{% if upcoming_in < 60 %} · in {{ upcoming_in }} min{% endif %}</span>
+        <strong>{{ upcoming.title }}</strong>
+        <span class="muted">{{ upcoming.get_day_of_week_display|slice:":3" }} {{ upcoming.start_time|time:"g:i A" }}</span>
+      </div>
+    {% endif %}
+    <div class="hero-actions">
+      <form method="post" action="{% url 'dashboard:toggle-live' %}">{% csrf_token %}
+        <button class="btn {% if config.is_live %}ghost{% else %}primary{% endif %}" type="submit"
+          data-confirm="{% if config.is_live %}Take the app off air? Viewers will see your off-air message.{% else %}Put the app back on air?{% endif %}">
+          <svg class="i"><use href="#i-radio"/></svg>{% if config.is_live %}Go off air{% else %}Go live{% endif %}
+        </button>
+      </form>
+      <a class="btn ghost" href="{% url 'dashboard:live' %}">Stream settings</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <a class="stat" href="{% url 'dashboard:prayers' %}">
+    <span class="stat-icon gold"><svg class="i"><use href="#i-heart"/></svg></span>
+    <strong>{{ stats.new_prayers }}</strong><span>New prayer requests</span>
+  </a>
+  <a class="stat" href="{% url 'dashboard:prayers' %}?status=all">
+    <span class="stat-icon"><svg class="i"><use href="#i-clock"/></svg></span>
+    <strong>{{ stats.week_prayers }}</strong><span>Requests this week</span>
+  </a>
+  <a class="stat" href="{% url 'dashboard:schedule' %}">
+    <span class="stat-icon"><svg class="i"><use href="#i-calendar"/></svg></span>
+    <strong>{{ stats.programs }}</strong><span>Weekly programs</span>
+  </a>
+  <div class="stat">
+    <span class="stat-icon"><svg class="i"><use href="#i-phone-device"/></svg></span>
+    <strong>{{ stats.devices }}</strong><span>Registered devices</span>
+  </div>
+</section>
+
+<div class="split">
+  <section class="card verse-card">
+    <div class="card-head">
+      <h3>Today's verse</h3>
+      <a class="link" href="{% url 'dashboard:verses' %}">All verses<svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    {% if verse %}
+      <blockquote class="scripture">
+        <p>{{ verse.text }}</p>
+        <cite>{{ verse.reference }}{% if verse.special %}<span class="badge gold sm"><svg class="i"><use href="#i-star"/></svg>Special</span>{% endif %}</cite>
+      </blockquote>
+    {% else %}
+      <div class="empty sm"><p>No verses yet. Run <code>python manage.py seed_ezra</code>.</p></div>
+    {% endif %}
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h3>Latest prayer requests</h3>
+      <a class="link" href="{% url 'dashboard:prayers' %}">Open<svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    {% for p in recent_prayers %}
+      <a class="mini-prayer" href="{% url 'dashboard:prayers' %}?status={{ p.status }}#p{{ p.pk }}">
+        <span class="avatar sm">{{ p.name|default:"?"|first|upper }}</span>
+        <span class="mini-body">
+          <strong>{{ p.name|default:"Anonymous" }}</strong>
+          <span class="muted clamp-1">{{ p.request }}</span>
+        </span>
+        <span class="mini-meta">{% if p.status == "new" %}<span class="badge gold sm">New</span>{% endif %}<small class="muted">{{ p.created_at|ago }}</small></span>
+      </a>
+    {% empty %}
+      <div class="empty sm"><svg class="i"><use href="#i-heart"/></svg><p>Requests sent from the app appear here.</p></div>
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}

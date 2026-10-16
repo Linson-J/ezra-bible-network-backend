@@ -1,0 +1,57 @@
+{% extends "dashboard/base.html" %}
+{% block title %}{% if program %}Edit program{% else %}New program{% endif %}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'dashboard:schedule' %}?day={% if program %}{{ program.day_of_week }}{% else %}{{ form.initial.day_of_week }}{% endif %}"><svg class="i"><use href="#i-back"/></svg>Schedule</a>
+<header class="page-head">
+  <div>
+    <p class="eyebrow">{% if program %}Edit program{% else %}New program{% endif %}</p>
+    <h1>{% if program %}{{ program.title }}{% else %}Add to the schedule{% endif %}</h1>
+  </div>
+</header>
+
+<form method="post" enctype="multipart/form-data" class="stack" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}<div class="notice danger">{{ form.non_field_errors }}</div>{% endif %}
+
+  <section class="card">
+    <div class="card-head"><h3>Details</h3></div>
+    <div class="form-grid">
+      {% include "dashboard/partials/field.html" with field=form.title %}
+      {% include "dashboard/partials/field.html" with field=form.speaker %}
+    </div>
+    {% include "dashboard/partials/field.html" with field=form.description %}
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h3>When</h3></div>
+    <div class="form-grid three">
+      {% include "dashboard/partials/field.html" with field=form.day_of_week %}
+      {% include "dashboard/partials/field.html" with field=form.start_time %}
+      {% include "dashboard/partials/field.html" with field=form.end_time %}
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h3>Image & visibility</h3></div>
+    <div class="form-grid">
+      <div class="upload">
+        {% if program and program.image_url %}<img class="upload-preview" src="{{ program.image_url }}" alt="" data-preview>{% else %}<img class="upload-preview" alt="" data-preview hidden>{% endif %}
+        {% include "dashboard/partials/field.html" with field=form.thumbnail %}
+      </div>
+      {% include "dashboard/partials/field.html" with field=form.thumbnail_url %}
+    </div>
+    {% include "dashboard/partials/field.html" with field=form.is_active %}
+  </section>
+
+  <div class="savebar">
+    {% if program %}
+      <button class="btn danger-ghost" type="submit" form="delete-form"
+        data-confirm="Delete “{{ program.title }}”? This can't be undone."><svg class="i"><use href="#i-trash"/></svg>Delete</button>
+    {% else %}<span></span>{% endif %}
+    <button class="btn primary" type="submit"><svg class="i"><use href="#i-check"/></svg>{% if program %}Save changes{% else %}Add program{% endif %}</button>
+  </div>
+</form>
+{% if program %}
+<form id="delete-form" method="post" action="{% url 'dashboard:program-delete' program.pk %}">{% csrf_token %}</form>
+{% endif %}
+{% endblock %}

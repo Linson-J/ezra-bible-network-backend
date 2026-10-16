@@ -1,0 +1,852 @@
+[
+  {
+    "id": "d1-01",
+    "title": "Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Start the day in prayer and thanksgiving.",
+    "dayOfWeek": 1,
+    "startTime": "05:30",
+    "endTime": "06:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-02",
+    "title": "Daily Bread",
+    "speaker": "Ezra Teaching Team",
+    "description": "A short devotion on today's Scripture.",
+    "dayOfWeek": 1,
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-03",
+    "title": "Worship Hour",
+    "speaker": "Ezra Worship",
+    "description": "Songs of praise and worship.",
+    "dayOfWeek": 1,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-04",
+    "title": "Bible Study",
+    "speaker": "Ezra Teaching Team",
+    "description": "Verse-by-verse study through the Word.",
+    "dayOfWeek": 1,
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-05",
+    "title": "Sermon Replay",
+    "speaker": "Guest Speakers",
+    "description": "Messages from recent services.",
+    "dayOfWeek": 1,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-06",
+    "title": "Midday Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Pray with us for your needs and the nation.",
+    "dayOfWeek": 1,
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-07",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 1,
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-08",
+    "title": "Kids Corner",
+    "speaker": "Ezra Kids",
+    "description": "Bible stories and songs for children.",
+    "dayOfWeek": 1,
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-09",
+    "title": "Youth Live",
+    "speaker": "Ezra Youth",
+    "description": "Faith, life and questions from young people.",
+    "dayOfWeek": 1,
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-10",
+    "title": "Evening Devotion",
+    "speaker": "Ezra Teaching Team",
+    "description": "Reflect on God's Word at the close of day.",
+    "dayOfWeek": 1,
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-11",
+    "title": "Revival Hour",
+    "speaker": "Ezra Ministers",
+    "description": "Preaching and ministry.",
+    "dayOfWeek": 1,
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-12",
+    "title": "Night Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prayer and intercession.",
+    "dayOfWeek": 1,
+    "startTime": "21:00",
+    "endTime": "22:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d1-13",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 1,
+    "startTime": "22:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-01",
+    "title": "Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Start the day in prayer and thanksgiving.",
+    "dayOfWeek": 2,
+    "startTime": "05:30",
+    "endTime": "06:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-02",
+    "title": "Daily Bread",
+    "speaker": "Ezra Teaching Team",
+    "description": "A short devotion on today's Scripture.",
+    "dayOfWeek": 2,
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-03",
+    "title": "Worship Hour",
+    "speaker": "Ezra Worship",
+    "description": "Songs of praise and worship.",
+    "dayOfWeek": 2,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-04",
+    "title": "Bible Study",
+    "speaker": "Ezra Teaching Team",
+    "description": "Verse-by-verse study through the Word.",
+    "dayOfWeek": 2,
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-05",
+    "title": "Sermon Replay",
+    "speaker": "Guest Speakers",
+    "description": "Messages from recent services.",
+    "dayOfWeek": 2,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-06",
+    "title": "Midday Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Pray with us for your needs and the nation.",
+    "dayOfWeek": 2,
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-07",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 2,
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-08",
+    "title": "Kids Corner",
+    "speaker": "Ezra Kids",
+    "description": "Bible stories and songs for children.",
+    "dayOfWeek": 2,
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-09",
+    "title": "Youth Live",
+    "speaker": "Ezra Youth",
+    "description": "Faith, life and questions from young people.",
+    "dayOfWeek": 2,
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-10",
+    "title": "Evening Devotion",
+    "speaker": "Ezra Teaching Team",
+    "description": "Reflect on God's Word at the close of day.",
+    "dayOfWeek": 2,
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-11",
+    "title": "Revival Hour",
+    "speaker": "Ezra Ministers",
+    "description": "Preaching and ministry.",
+    "dayOfWeek": 2,
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-12",
+    "title": "Night Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prayer and intercession.",
+    "dayOfWeek": 2,
+    "startTime": "21:00",
+    "endTime": "22:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d2-13",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 2,
+    "startTime": "22:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-01",
+    "title": "Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Start the day in prayer and thanksgiving.",
+    "dayOfWeek": 3,
+    "startTime": "05:30",
+    "endTime": "06:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-02",
+    "title": "Daily Bread",
+    "speaker": "Ezra Teaching Team",
+    "description": "A short devotion on today's Scripture.",
+    "dayOfWeek": 3,
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-03",
+    "title": "Worship Hour",
+    "speaker": "Ezra Worship",
+    "description": "Songs of praise and worship.",
+    "dayOfWeek": 3,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-04",
+    "title": "Bible Study",
+    "speaker": "Ezra Teaching Team",
+    "description": "Verse-by-verse study through the Word.",
+    "dayOfWeek": 3,
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-05",
+    "title": "Sermon Replay",
+    "speaker": "Guest Speakers",
+    "description": "Messages from recent services.",
+    "dayOfWeek": 3,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-06",
+    "title": "Midday Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Pray with us for your needs and the nation.",
+    "dayOfWeek": 3,
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-07",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 3,
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-08",
+    "title": "Kids Corner",
+    "speaker": "Ezra Kids",
+    "description": "Bible stories and songs for children.",
+    "dayOfWeek": 3,
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-09",
+    "title": "Youth Live",
+    "speaker": "Ezra Youth",
+    "description": "Faith, life and questions from young people.",
+    "dayOfWeek": 3,
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-10",
+    "title": "Evening Devotion",
+    "speaker": "Ezra Teaching Team",
+    "description": "Reflect on God's Word at the close of day.",
+    "dayOfWeek": 3,
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-11",
+    "title": "Revival Hour",
+    "speaker": "Ezra Ministers",
+    "description": "Preaching and ministry.",
+    "dayOfWeek": 3,
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-12",
+    "title": "Night Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prayer and intercession.",
+    "dayOfWeek": 3,
+    "startTime": "21:00",
+    "endTime": "22:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d3-13",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 3,
+    "startTime": "22:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-01",
+    "title": "Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Start the day in prayer and thanksgiving.",
+    "dayOfWeek": 4,
+    "startTime": "05:30",
+    "endTime": "06:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-02",
+    "title": "Daily Bread",
+    "speaker": "Ezra Teaching Team",
+    "description": "A short devotion on today's Scripture.",
+    "dayOfWeek": 4,
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-03",
+    "title": "Worship Hour",
+    "speaker": "Ezra Worship",
+    "description": "Songs of praise and worship.",
+    "dayOfWeek": 4,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-04",
+    "title": "Bible Study",
+    "speaker": "Ezra Teaching Team",
+    "description": "Verse-by-verse study through the Word.",
+    "dayOfWeek": 4,
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-05",
+    "title": "Sermon Replay",
+    "speaker": "Guest Speakers",
+    "description": "Messages from recent services.",
+    "dayOfWeek": 4,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-06",
+    "title": "Midday Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Pray with us for your needs and the nation.",
+    "dayOfWeek": 4,
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-07",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 4,
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-08",
+    "title": "Kids Corner",
+    "speaker": "Ezra Kids",
+    "description": "Bible stories and songs for children.",
+    "dayOfWeek": 4,
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-09",
+    "title": "Youth Live",
+    "speaker": "Ezra Youth",
+    "description": "Faith, life and questions from young people.",
+    "dayOfWeek": 4,
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-10",
+    "title": "Evening Devotion",
+    "speaker": "Ezra Teaching Team",
+    "description": "Reflect on God's Word at the close of day.",
+    "dayOfWeek": 4,
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-11",
+    "title": "Revival Hour",
+    "speaker": "Ezra Ministers",
+    "description": "Preaching and ministry.",
+    "dayOfWeek": 4,
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-12",
+    "title": "Night Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prayer and intercession.",
+    "dayOfWeek": 4,
+    "startTime": "21:00",
+    "endTime": "22:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d4-13",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 4,
+    "startTime": "22:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-01",
+    "title": "Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Start the day in prayer and thanksgiving.",
+    "dayOfWeek": 5,
+    "startTime": "05:30",
+    "endTime": "06:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-02",
+    "title": "Daily Bread",
+    "speaker": "Ezra Teaching Team",
+    "description": "A short devotion on today's Scripture.",
+    "dayOfWeek": 5,
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-03",
+    "title": "Worship Hour",
+    "speaker": "Ezra Worship",
+    "description": "Songs of praise and worship.",
+    "dayOfWeek": 5,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-04",
+    "title": "Bible Study",
+    "speaker": "Ezra Teaching Team",
+    "description": "Verse-by-verse study through the Word.",
+    "dayOfWeek": 5,
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-05",
+    "title": "Sermon Replay",
+    "speaker": "Guest Speakers",
+    "description": "Messages from recent services.",
+    "dayOfWeek": 5,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-06",
+    "title": "Midday Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Pray with us for your needs and the nation.",
+    "dayOfWeek": 5,
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-07",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 5,
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-08",
+    "title": "Kids Corner",
+    "speaker": "Ezra Kids",
+    "description": "Bible stories and songs for children.",
+    "dayOfWeek": 5,
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-09",
+    "title": "Youth Live",
+    "speaker": "Ezra Youth",
+    "description": "Faith, life and questions from young people.",
+    "dayOfWeek": 5,
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-10",
+    "title": "Evening Devotion",
+    "speaker": "Ezra Teaching Team",
+    "description": "Reflect on God's Word at the close of day.",
+    "dayOfWeek": 5,
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-11",
+    "title": "Revival Hour",
+    "speaker": "Ezra Ministers",
+    "description": "Preaching and ministry.",
+    "dayOfWeek": 5,
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-12",
+    "title": "Night Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prayer and intercession.",
+    "dayOfWeek": 5,
+    "startTime": "21:00",
+    "endTime": "22:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d5-13",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 5,
+    "startTime": "22:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-01",
+    "title": "Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Start the day in prayer and thanksgiving.",
+    "dayOfWeek": 6,
+    "startTime": "05:30",
+    "endTime": "06:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-02",
+    "title": "Daily Bread",
+    "speaker": "Ezra Teaching Team",
+    "description": "A short devotion on today's Scripture.",
+    "dayOfWeek": 6,
+    "startTime": "06:00",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-03",
+    "title": "Worship Hour",
+    "speaker": "Ezra Worship",
+    "description": "Songs of praise and worship.",
+    "dayOfWeek": 6,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-04",
+    "title": "Bible Study",
+    "speaker": "Ezra Teaching Team",
+    "description": "Verse-by-verse study through the Word.",
+    "dayOfWeek": 6,
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-05",
+    "title": "Sermon Replay",
+    "speaker": "Guest Speakers",
+    "description": "Messages from recent services.",
+    "dayOfWeek": 6,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-06",
+    "title": "Midday Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Pray with us for your needs and the nation.",
+    "dayOfWeek": 6,
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-07",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 6,
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-08",
+    "title": "Kids Corner",
+    "speaker": "Ezra Kids",
+    "description": "Bible stories and songs for children.",
+    "dayOfWeek": 6,
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-09",
+    "title": "Youth Live",
+    "speaker": "Ezra Youth",
+    "description": "Faith, life and questions from young people.",
+    "dayOfWeek": 6,
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-10",
+    "title": "Evening Devotion",
+    "speaker": "Ezra Teaching Team",
+    "description": "Reflect on God's Word at the close of day.",
+    "dayOfWeek": 6,
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-11",
+    "title": "Revival Hour",
+    "speaker": "Ezra Ministers",
+    "description": "Preaching and ministry.",
+    "dayOfWeek": 6,
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-12",
+    "title": "Night Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prayer and intercession.",
+    "dayOfWeek": 6,
+    "startTime": "21:00",
+    "endTime": "22:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d6-13",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 6,
+    "startTime": "22:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-01",
+    "title": "Sunday Morning Prayer",
+    "speaker": "Ezra Prayer Team",
+    "description": "Prepare your heart for the Lord's day.",
+    "dayOfWeek": 7,
+    "startTime": "05:30",
+    "endTime": "07:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-02",
+    "title": "Sunday Worship",
+    "speaker": "Ezra Worship",
+    "description": "Praise and worship to begin the Lord's day.",
+    "dayOfWeek": 7,
+    "startTime": "07:00",
+    "endTime": "09:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-03",
+    "title": "Sunday Service (Live)",
+    "speaker": "Senior Pastor",
+    "description": "Live Sunday service.",
+    "dayOfWeek": 7,
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-04",
+    "title": "Gospel Music",
+    "speaker": "Ezra Worship",
+    "description": "Gospel music for the afternoon.",
+    "dayOfWeek": 7,
+    "startTime": "12:00",
+    "endTime": "16:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-05",
+    "title": "Testimony Hour",
+    "speaker": "Ezra Family",
+    "description": "Stories of God's faithfulness.",
+    "dayOfWeek": 7,
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-06",
+    "title": "Sunday Evening Service",
+    "speaker": "Ezra Ministers",
+    "description": "Evening worship and the Word.",
+    "dayOfWeek": 7,
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "thumbnailUrl": ""
+  },
+  {
+    "id": "d7-07",
+    "title": "Overnight Worship",
+    "speaker": "Ezra Worship",
+    "description": "Continuous worship through the night.",
+    "dayOfWeek": 7,
+    "startTime": "21:00",
+    "endTime": "05:30",
+    "thumbnailUrl": ""
+  }
+]

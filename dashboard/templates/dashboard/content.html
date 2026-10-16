@@ -1,0 +1,44 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Ministry details{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Ministry details</p>
+    <h1>About & contact</h1>
+    <p class="muted">Shown on the app's More and About screens.</p>
+  </div>
+</header>
+
+<form method="post" class="stack" novalidate>
+  {% csrf_token %}
+  <section class="card">
+    <div class="card-head"><h3>About</h3></div>
+    {% include "dashboard/partials/field.html" with field=form.about %}
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h3>Contact</h3></div>
+    <div class="form-grid">
+      {% include "dashboard/partials/field.html" with field=form.email %}
+      {% include "dashboard/partials/field.html" with field=form.phone %}
+      {% include "dashboard/partials/field.html" with field=form.whatsapp %}
+      {% include "dashboard/partials/field.html" with field=form.address %}
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h3>Links</h3></div>
+    <div class="form-grid">
+      {% include "dashboard/partials/field.html" with field=form.website_url %}
+      {% include "dashboard/partials/field.html" with field=form.youtube_url %}
+      {% include "dashboard/partials/field.html" with field=form.facebook_url %}
+      {% include "dashboard/partials/field.html" with field=form.instagram_url %}
+    </div>
+  </section>
+
+  <div class="savebar">
+    <span></span>
+    <button class="btn primary" type="submit"><svg class="i"><use href="#i-check"/></svg>Save details</button>
+  </div>
+</form>
+{% endblock %}

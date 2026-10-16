@@ -1,0 +1,83 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Daily verse{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Daily verse</p>
+    <h1>Verse of the day</h1>
+    <p class="muted">A {{ rotation_count }}-day yearly rotation. Special verses replace it on chosen dates.</p>
+  </div>
+  <div class="head-actions">
+    <a class="btn primary" href="{% url 'dashboard:special-new' %}"><svg class="i"><use href="#i-star"/></svg>Special verse</a>
+  </div>
+</header>
+
+{% with first=upcoming.0 %}{% if first %}
+<section class="card verse-hero">
+  <p class="eyebrow">Today · {{ first.date|date:"l, j F" }}</p>
+  <blockquote class="scripture lg">
+    <p>{{ first.text }}</p>
+    <cite>{{ first.reference }}{% if first.special %}<span class="badge gold sm"><svg class="i"><use href="#i-star"/></svg>Special</span>{% endif %}</cite>
+  </blockquote>
+</section>
+{% endif %}{% endwith %}
+
+<div class="split">
+  <section class="card">
+    <div class="card-head"><h3>Next two weeks</h3></div>
+    <ul class="vlist">
+      {% for v in upcoming|slice:"1:" %}
+      <li>
+        <span class="vdate"><strong>{{ v.date|date:"j" }}</strong><small>{{ v.date|date:"D" }}</small></span>
+        <span class="vbody">
+          <strong>{{ v.reference }}{% if v.special %} <span class="badge gold sm"><svg class="i"><use href="#i-star"/></svg>Special</span>{% endif %}</strong>
+          <span class="muted small clamp-1">{{ v.text }}</span>
+        </span>
+        {% if v.special %}
+          <a class="icon-btn" href="{% url 'dashboard:special-edit' v.source.pk %}" title="Edit special verse" aria-label="Edit special verse"><svg class="i"><use href="#i-edit"/></svg></a>
+        {% else %}
+          <a class="icon-btn" href="{% url 'dashboard:special-new' %}?date={{ v.date|date:'Y-m-d' }}" title="Set a special verse for this date" aria-label="Set special verse for {{ v.date|date:'j F' }}"><svg class="i"><use href="#i-star"/></svg></a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h3>Special dates</h3></div>
+    {% for s in specials %}
+      <a class="vrow" href="{% url 'dashboard:special-edit' s.pk %}">
+        <span class="vdate gold"><strong>{{ s.date|date:"j" }}</strong><small>{{ s.date|date:"M" }}</small></span>
+        <span class="vbody"><strong>{{ s.reference }}</strong><span class="muted small">{% if s.note %}{{ s.note }} · {% endif %}{{ s.date|date:"l, Y" }}</span></span>
+        <svg class="i muted"><use href="#i-arrow"/></svg>
+      </a>
+    {% empty %}
+      <div class="empty sm"><svg class="i"><use href="#i-star"/></svg><p>Pin a verse to Easter, Christmas or any date that matters.</p></div>
+    {% endfor %}
+  </section>
+</div>
+
+<section class="card">
+  <div class="card-head wrap">
+    <h3>Yearly rotation</h3>
+    <form class="search" method="get" role="search">
+      <svg class="i"><use href="#i-search"/></svg>
+      <input class="input" type="search" name="q" value="{{ q }}" placeholder="Search reference or text" aria-label="Search verses">
+    </form>
+  </div>
+  <ul class="rotation">
+    {% for v in page %}
+    <li>
+      <a href="{% url 'dashboard:daily-verse-edit' v.day %}?next={{ request.get_full_path|urlencode }}">
+        <span class="day-no">{{ v.day }}</span>
+        <span class="vbody"><strong>{{ v.reference }}</strong><span class="muted small clamp-2">{{ v.text }}</span></span>
+        <svg class="i muted"><use href="#i-edit"/></svg>
+      </a>
+    </li>
+    {% empty %}
+    <li class="empty sm"><p>{% if q %}No verses match “{{ q }}”.{% else %}No verses yet. Run <code>python manage.py seed_ezra</code>.{% endif %}</p></li>
+    {% endfor %}
+  </ul>
+  {% include "dashboard/partials/pager.html" %}
+</section>
+{% endblock %}
